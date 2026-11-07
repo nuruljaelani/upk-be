@@ -5,12 +5,12 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "bun --watch src/index.js",
-    "start": "bun src/index.js",
+    "start": "node src/index.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:reset": "bun src/db/reset.js",
-    "db:seed": "bun src/db/seed.js",
-    "db:seed:members": "bun src/db/seed_members.js",
+    "db:reset": "node src/db/reset.js",
+    "db:seed": "node src/db/seed.js",
+    "db:seed:members": "node src/db/seed_members.js",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
