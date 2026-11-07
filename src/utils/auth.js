@@ -1,15 +1,13 @@
 import jwt from "jsonwebtoken";
 import { env } from "../config/env.js";
+import bcrypt from "bcryptjs"
 
 export async function hashPassword(password) {
-  return await Bun.password.hash(password, {
-    algorithm: "bcrypt",
-    cost: 10,
-  });
+  return await bcrypt.hash(password, 10);
 }
 
 export async function verifyPassword(password, hash) {
-  return await Bun.password.verify(password, hash);
+  return await bcrypt.compare(password, hash);
 }
 
 export function generateToken(payload, ttl = env.JWT_EXPIRES_IN) {
